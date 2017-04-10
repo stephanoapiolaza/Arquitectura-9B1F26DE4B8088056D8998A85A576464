@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="cl.bilix.xps.persistence.mapper.cliente.ClienteMapper">
+
+	
+	<resultMap id="clienteResult"	type="ClienteVO">
+		<result column="CTE_ID"     				property="idCTE"  />
+		<result column="CTE_NOMBRE"  				property="nombreCTE"  />
+	</resultMap>
+	
+	<!-- 
+	
+	<resultMap id="clienteResult"	type="ClienteVO">
+		<result column="CTE_ID"     				property="idCTE"  />
+		<result column="CTE_NOMBRE"  				property="nombreCTE"  />
+		
+		<!-- Despues del retorno de la consulta hacer otra consulta
+		<collection property="contactos" column="CTA_ID"
+			ofType="ContactoCheckBoxVO"
+			javaType="ArrayList" select="getContactosByCuenta" />
+	</resultMap>
+	-->
+	
+	<select id="getClienteList" resultMap="clienteResult"  >
+		Select	"CTE_ID",
+				"CTE_NOMBRE"
+		FROM	"XPS_NEG_CLIENTE"
+	</select>
+	
+	<select id="getCliente" parameterType="ClienteVO" resultMap="clienteResult"  >
+		Select	"CTE_ID",
+				"CTE_NOMBRE"
+		FROM	"XPS_NEG_CLIENTE"
+		WHERE "CTE_ID" = #{idCTE,jdbcType=NUMERIC}
+		LIMIT 1
+	</select>
+
+	<insert id="insertCliente"   parameterType="ClienteVO">
+		Insert into "XPS_NEG_CLIENTE"(
+			"CTE_NOMBRE")
+		values (
+			#{nombreCTE,jdbcType=VARCHAR}
+		)
+
+	        <selectKey keyProperty="idCTE" resultType="long" order="AFTER">
+	            SELECT last_value AS idCTE FROM public."XPS_NEG_CLIENTE_CTE_ID_seq";
+	        </selectKey>
+	</insert>
+	
+	<update id="updateCliente" parameterType="ClienteVO">
+			UPDATE "XPS_NEG_CLIENTE"
+			SET	
+				"CTE_NOMBRE" 			= #{nombreCTE,jdbcType=VARCHAR}
+			WHERE "CTE_ID" = #{idCTE,jdbcType=NUMERIC}
+	</update>
+	
+	<delete id="deleteCliente" parameterType="long">
+		DELETE FROM "XPS_NEG_CLIENTE"
+		WHERE "CTE_ID" = #{idCTE,jdbcType=NUMERIC}
+	</delete>
+	
+	</mapper>
