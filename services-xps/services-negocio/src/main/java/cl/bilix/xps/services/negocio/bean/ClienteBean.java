@@ -1,6 +1,13 @@
 package cl.bilix.xps.services.negocio.bean;
 
-import cl.bilix.xps.negocio.to.matching.cliente.MapClienteTO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cl.bilix.xps.common.util.ConverterMap;
+import cl.bilix.xps.negocio.to.cliente.ClienteTO;
+import cl.bilix.xps.negocio.to.matching.cliente.MapCliente;
+import cl.bilix.xps.persistence.model.cliente.ClienteVO;
+import cl.bilix.xps.services.negocio.service.ClienteService;
 
 @Service
 public class ClienteBean {
@@ -8,7 +15,9 @@ public class ClienteBean {
 	 * en  ClienteExtBean o añadir mas clases en cl.bilix.xps.services.negocio.bean.cliente.
 	 * 
 	 *  Esta clase hace llamadas a los recursos de persistencia y las entradas son TO que luego
-	 *  deben ser manipuladas por VO y retornar un TO al controller*/
+	 *  deben ser manipuladas por VO y retornar un TO al controller
+	 *  Este metodo se justifica,ya que el TO puede contener campos que solo pertenecen al negocio
+	 *  como permisos de accion, etc*/
 	
 	@Autowired
 	ClienteService clienteService;
@@ -19,34 +28,26 @@ public class ClienteBean {
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T> T getCliente(ClienteTO clienteTO) {		
-		return (T) clienteService.getCliente();
+	public <T> T getCliente(long idCliente) {		
+		return (T) clienteService.getCliente(idCliente);
 	}
 	
 	@SuppressWarnings("unchecked")
-	public <T> T saveCliente(CuentaTO cuentaTO, String token) {
-		TokenTO tokenTO = tokenBean.recuperarTokenDto(token);
-		
-		CuentaVO cuentaVO = ConverterMap.ConvertObject(cuentaTO, CuentaVO.class);
-		if(cuentaVO.getRazonSocialCTA().isEmpty() || cuentaVO.getRazonSocialCTA()==null){
-			cuentaVO.setRazonSocialCTA(cuentaVO.getNombreCTA());
+	public <T> T saveCliente(ClienteTO clienteTO) {
+		// si id es 0 crea sino actualiza
+		ClienteVO clienteVO = ConverterMap.ConvertCustomObject(clienteTO, ClienteVO.class, MapCliente.MatchClienteTOXVO());
+		if ( clienteVO.getIdCTE() == 0 ){
+			clienteVO =  this.getCliente(clienteService.insertCliente(clienteVO));
+		}else{
+			clienteService.updateCliente(clienteVO);
 		}
-		if(cuentaTO.getIdCTA()==0){
-			cuentaVO.setActivaCTA(true);
-			cuentaService.insertCuenta(cuentaVO);
-		} else {
-			cuentaService.updateCuenta(cuentaVO);
-		}
-		return (T) getDetalleCuenta(cuentaVO.getIdCTA(),token);
+		return (T) ConverterMap.ConvertCustomObject(clienteVO, ClienteTO.class, MapCliente.MatchClienteVOXTO());
 	}
 	
+	
 	@SuppressWarnings("unchecked")
-	public <T> T deleteCuentas ( TablaCuenta tabla, String token){
-		// Desabilita la cuenta
-		for ( CuentaListVO cuenta : tabla.getLstCuentas() ){
-			cuenta.setActivaCTA(false);
-			cuentaService.deleteCuenta(cuenta);
-		}
-		return this.getCuentasAffected(tabla);
+	public void  deleteCuentas ( ClienteTO clienteTO){
+		// elimina la cuenta
+		clienteService.deleteCliente(ConverterMap.ConvertCustomObject(clienteTO, ClienteVO.class, MapCliente.MatchClienteTOXVO()));
 	}
 }

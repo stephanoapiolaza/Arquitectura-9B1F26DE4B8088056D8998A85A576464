@@ -51,27 +51,29 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>controller-olimpo</finalName>
+		<finalName>controller-xps</finalName>
 	</build>
 	
 	<dependencies>
 		<!-- Internal Dependecies -->
 		<dependency>
-			<groupId>cl.imagemaker.olimpo.common</groupId>
-			<artifactId>common-olimpo</artifactId>
+			<groupId>cl.bilix.xps.common</groupId>
+			<artifactId>common-xps</artifactId>
 			<version>1.0.0</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>cl.bilix.xps.services.negocio</groupId>
 			<artifactId>services-negocio</artifactId>
 			<version>1.0.0</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>cl.bilix.xps.services.utils</groupId>
 			<artifactId>services-utils</artifactId>
 			<version>1.0.0</version>
+			<scope>provided</scope>
 		</dependency>
-		<!-- End IDependencise -->
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -242,6 +244,18 @@
 			<groupId>commons-codec</groupId>
 			<artifactId>commons-codec</artifactId>
 			<version>1.10</version>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/junit/junit -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>cl.bilix.xps.services.utils</groupId>
+			<artifactId>services-utils</artifactId>
+			<version>1.0.0</version>
 		</dependency>
 	</dependencies>
 

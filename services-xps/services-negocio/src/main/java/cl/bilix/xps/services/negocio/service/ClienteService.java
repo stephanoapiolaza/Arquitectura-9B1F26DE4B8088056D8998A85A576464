@@ -1,5 +1,14 @@
 package cl.bilix.xps.services.negocio.service;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import cl.bilix.xps.common.error.ListNullException;
+import cl.bilix.xps.common.error.PersistenceException;
+import cl.bilix.xps.persistence.mapper.cliente.ClienteMapper;
+import cl.bilix.xps.persistence.model.cliente.ClienteVO;
+
 public class ClienteService {
 	/* 
 	 * Consume la interfaz que se encarga de enviar la solicitud al mapper.xml (mybatis), 
@@ -9,8 +18,8 @@ public class ClienteService {
 	@Autowired
 	ClienteMapper clienteMapper;
 	
-	public List<CuentaListVO> getClientes(FilterCuenta filter) {
-		List<CuentaListVO> listCuenta = cuentaMapper.getCuentasList(filter);
+	public List<ClienteVO> getClientes() {
+		List<ClienteVO> listCuenta = clienteMapper.getClienteList();
 		if (listCuenta == null) {
 			throw new ListNullException();
 		}
@@ -18,7 +27,7 @@ public class ClienteService {
 	}
 	
 	public ClienteVO getCliente(long idCTE) {
-		return clienteMapper.getCuenta(idCTE);
+		return clienteMapper.getClienteById(idCTE);
 	}
 	
 	public long insertCliente(ClienteVO clienteVO) {

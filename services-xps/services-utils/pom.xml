@@ -15,15 +15,15 @@
 	<dependencies>
 		<!-- Internal Dependecies -->
 		<dependency>
-			<groupId>cl.bilix.xps.persistence</groupId>
-			<artifactId>persistence-xps</artifactId>
-			<version>1.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
 			<groupId>cl.bilix.xps.common</groupId>
 			<artifactId>common-xps</artifactId>
 			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>cl.bilix.xps.persistence</groupId>
+			<artifactId>persistence-xps</artifactId>
+			<version>1.0</version>
 			<scope>provided</scope>
 		</dependency>
 		<!-- End IDependencise -->
