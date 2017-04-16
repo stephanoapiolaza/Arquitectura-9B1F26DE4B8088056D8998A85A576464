@@ -90,11 +90,6 @@
 			<version>${junit.version}</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
-			<groupId>cl.bilix.xps.persistence</groupId>
-			<artifactId>persistence-xps</artifactId>
-			<version>1.0</version>
-		</dependency>
 	</dependencies>
 
 </project>

@@ -1,4 +1,4 @@
-package cl.bilix.xps.negocio.to.cliente;
+package cl.bilix.xps.services.negocio.utils.to;
 
 public class ClienteTO {
 	private long idCliente;

@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper
-	namespace="cl.bilix.xps.persistence.mapper.cliente.ClienteMapper">
+	namespace="cl.bilix.xps.persistence.mapper.utils.ClienteMapper">
 
 	
-	<resultMap id="clienteResult"	type="ClienteVO">
-		<result column="CTE_ID"     				property="idCTE"  />
-		<result column="CTE_NOMBRE"  				property="nombreCTE"  />
+	<resultMap id="clienteResult"					type="ClienteVO">
+		<result column="CTE_ID"     				property="idCTE"  		/>
+		<result column="CTE_NOMBRE"  				property="nombreCTE"  	/>
 	</resultMap>
 	
-	<!-- 
 	
-	<resultMap id="clienteResult"	type="ClienteVO">
-		<result column="CTE_ID"     				property="idCTE"  />
-		<result column="CTE_NOMBRE"  				property="nombreCTE"  />
-		
-		<!-- Despues del retorno de la consulta hacer otra consulta
-		<collection property="contactos" column="CTA_ID"
-			ofType="ContactoCheckBoxVO"
-			javaType="ArrayList" select="getContactosByCuenta" />
-	</resultMap>
-	-->
-	
-	<select id="getClienteList" resultMap="clienteResult"  >
+	<select id="findClientes" parameterType="ClienteVO" resultMap="clienteResult"  >
 		Select	"CTE_ID",
 				"CTE_NOMBRE"
-		FROM	"XPS_NEG_CLIENTE"
+		FROM	"CLIENTE"
+		WHERE 1=1 
+		<if test="nombreCTE != null">and "CTE_NOMBRE" LIKE '%#{nombreCTE,jdbcType="VARCHAR"}%'</if>
 	</select>
 	
 	<select id="getCliente" parameterType="ClienteVO" resultMap="clienteResult"  >
@@ -33,6 +23,7 @@
 				"CTE_NOMBRE"
 		FROM	"XPS_NEG_CLIENTE"
 		WHERE "CTE_ID" = #{idCTE,jdbcType=NUMERIC}
+		<if test="5 > 5">AND "CTE_NOMBRE" LIKE '%ABC%'</if>
 		LIMIT 1
 	</select>
 

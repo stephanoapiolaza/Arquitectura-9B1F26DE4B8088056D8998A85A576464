@@ -1,4 +1,4 @@
-package cl.bilix.xps.persistence.model.cliente;
+package cl.bilix.xps.persistence.model.utils;
 
 public class ClienteVO {
 	private long idCTE;

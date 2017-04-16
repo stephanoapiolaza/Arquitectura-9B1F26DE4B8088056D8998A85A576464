@@ -56,24 +56,6 @@
 	
 	<dependencies>
 		<!-- Internal Dependecies -->
-		<dependency>
-			<groupId>cl.bilix.xps.common</groupId>
-			<artifactId>common-xps</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>cl.bilix.xps.services.negocio</groupId>
-			<artifactId>services-negocio</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>cl.bilix.xps.services.utils</groupId>
-			<artifactId>services-utils</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -253,9 +235,28 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+		    <groupId>com.fasterxml.jackson.core</groupId>
+		    <artifactId>jackson-databind</artifactId>
+		    <version>2.5.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cl.bilix.xps.services.negocio</groupId>
+			<artifactId>services-negocio</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
 			<groupId>cl.bilix.xps.services.utils</groupId>
 			<artifactId>services-utils</artifactId>
 			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>cl.bilix.xps.common</groupId>
+			<artifactId>common-xps</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

@@ -20,7 +20,7 @@
 		
 		<!--  JNDI CONNECT  -->
 		<beans:bean id="dataSource"	class="org.springframework.jndi.JndiObjectFactoryBean">
-  	 		<beans:property name="jndiName" value="java:/datasources/XpsDS" />
+  	 		<beans:property name="jndiName" value="java:/datasources/XPS2DS" />
 		</beans:bean>
 	
 	<tx:annotation-driven transaction-manager="transactionManager"/>

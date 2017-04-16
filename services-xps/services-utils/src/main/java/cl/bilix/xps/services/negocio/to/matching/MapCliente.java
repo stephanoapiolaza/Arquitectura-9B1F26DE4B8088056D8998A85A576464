@@ -1,10 +1,9 @@
-package cl.bilix.xps.negocio.to.matching.cliente;
+package cl.bilix.xps.services.negocio.to.matching;
 
 import org.modelmapper.PropertyMap;
 
-import cl.bilix.xps.negocio.to.cliente.ClienteTO;
-import cl.bilix.xps.persistence.model.cliente.ClienteVO;
-
+import cl.bilix.xps.persistence.model.utils.ClienteVO;
+import cl.bilix.xps.services.negocio.utils.to.ClienteTO;
 
 public class MapCliente {
 	public static <F,T>PropertyMap MatchClienteVOXTO(){
@@ -31,3 +30,4 @@ public class MapCliente {
 		return map;
 	}
 }
+
