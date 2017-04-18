@@ -5,7 +5,7 @@
 	<name>services-utils</name>
 	<groupId>cl.bilix.xps.services.utils</groupId>
 	<artifactId>services-utils</artifactId>
-
+	
 	<parent>
 		<groupId>cl.bilix.xps.services</groupId>
 		<artifactId>services-xps</artifactId>
@@ -14,6 +14,18 @@
 
 	<dependencies>
 		<!-- Internal Dependecies -->
+		<dependency>
+			<groupId>cl.bilix.xps.common</groupId>
+			<artifactId>common-xps</artifactId>
+			<version>1.0.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>cl.bilix.xps.persistence</groupId>
+			<artifactId>persistence-xps</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
 		<!-- End IDependencise -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -36,18 +48,6 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>cl.bilix.xps.common</groupId>
-			<artifactId>common-xps</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>cl.bilix.xps.persistence</groupId>
-			<artifactId>persistence-xps</artifactId>
-			<version>1.0</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 </project>

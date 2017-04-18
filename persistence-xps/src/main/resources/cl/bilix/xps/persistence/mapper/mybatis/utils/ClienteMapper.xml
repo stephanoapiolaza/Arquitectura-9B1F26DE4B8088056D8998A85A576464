@@ -11,44 +11,44 @@
 	
 	
 	<select id="findClientes" parameterType="ClienteVO" resultMap="clienteResult"  >
-		Select	"CTE_ID",
-				"CTE_NOMBRE"
-		FROM	"CLIENTE"
+		Select	CTE_ID,
+				CTE_NOMBRE
+		FROM	CLIENTE
 		WHERE 1=1 
 		<if test="nombreCTE != null">and "CTE_NOMBRE" LIKE '%#{nombreCTE,jdbcType="VARCHAR"}%'</if>
 	</select>
 	
 	<select id="getCliente" parameterType="ClienteVO" resultMap="clienteResult"  >
-		Select	"CTE_ID",
-				"CTE_NOMBRE"
-		FROM	"XPS_NEG_CLIENTE"
-		WHERE "CTE_ID" = #{idCTE,jdbcType=NUMERIC}
-		<if test="5 > 5">AND "CTE_NOMBRE" LIKE '%ABC%'</if>
+		Select	CTE_ID,
+				CTE_NOMBRE
+		FROM	CLIENTE
+		WHERE CTE_ID = #{idCTE,jdbcType=NUMERIC}
+		<if test="5 > 5">AND CTE_NOMBRE LIKE '%ABC%'</if>
 		LIMIT 1
 	</select>
 
 	<insert id="insertCliente"   parameterType="ClienteVO">
-		Insert into "XPS_NEG_CLIENTE"(
-			"CTE_NOMBRE")
+		Insert into CLIENTE(
+			CTE_NOMBRE)
 		values (
 			#{nombreCTE,jdbcType=VARCHAR}
 		)
 
 	        <selectKey keyProperty="idCTE" resultType="long" order="AFTER">
-	            SELECT last_value AS idCTE FROM public."XPS_NEG_CLIENTE_CTE_ID_seq";
+	            SELECT last_value AS idCTE FROM public.XPS_NEG_CLIENTE_CTE_ID_seq;
 	        </selectKey>
 	</insert>
 	
 	<update id="updateCliente" parameterType="ClienteVO">
-			UPDATE "XPS_NEG_CLIENTE"
+			UPDATE CLIENTE
 			SET	
-				"CTE_NOMBRE" 			= #{nombreCTE,jdbcType=VARCHAR}
-			WHERE "CTE_ID" = #{idCTE,jdbcType=NUMERIC}
+				CTE_NOMBRE			= #{nombreCTE,jdbcType=VARCHAR}
+			WHERE CTE_ID = #{idCTE,jdbcType=NUMERIC}
 	</update>
 	
 	<delete id="deleteCliente" parameterType="long">
-		DELETE FROM "XPS_NEG_CLIENTE"
-		WHERE "CTE_ID" = #{idCTE,jdbcType=NUMERIC}
+		DELETE FROM CLIENTE
+		WHERE CTE_ID = #{idCTE,jdbcType=NUMERIC}
 	</delete>
 	
 	</mapper>

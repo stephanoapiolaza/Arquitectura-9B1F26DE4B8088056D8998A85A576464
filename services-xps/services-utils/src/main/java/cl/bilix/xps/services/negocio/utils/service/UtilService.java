@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cl.bilix.xps.common.error.ListNullException;
-import cl.bilix.xps.common.error.PersistenceException;
 import cl.bilix.xps.persistence.mapper.utils.ClienteMapper;
 import cl.bilix.xps.persistence.model.utils.ClienteVO;
 

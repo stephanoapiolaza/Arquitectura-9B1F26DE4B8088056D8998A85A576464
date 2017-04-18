@@ -35,8 +35,8 @@
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>2.5.1</version>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
 					<compilerArgument>-Xlint:all</compilerArgument>
 					<showWarnings>true</showWarnings>
 					<showDeprecation>true</showDeprecation>
@@ -51,11 +51,31 @@
 				</configuration>
 			</plugin>
 		</plugins>
-		<finalName>controller-xps</finalName>
+		<finalName>${project.name}</finalName>
 	</build>
 	
 	<dependencies>
 		<!-- Internal Dependecies -->
+		<dependency>
+			<groupId>cl.bilix.xps.services.negocio</groupId>
+			<artifactId>services-negocio</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>cl.bilix.xps.common</groupId>
+			<artifactId>common-xps</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>cl.bilix.xps.services.utils</groupId>
+			<artifactId>services-utils</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>cl.bilix.xps.persistence</groupId>
+			<artifactId>persistence-xps</artifactId>
+			<version>1.0</version>
+		</dependency>
 		<!-- Spring -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -162,6 +182,13 @@
 		    <artifactId>mysql-connector-java</artifactId>
 		    <version>6.0.6</version>
 		</dependency>
+		<!-- 
+		<dependency>
+		    <groupId>com.microsoft.sqlserver</groupId>
+		    <artifactId>mssql-jdbc</artifactId>
+		    <version>6.1.6.jre8-preview</version>
+		</dependency>
+		 -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-jdbc</artifactId>
@@ -235,29 +262,36 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jackson-provider</artifactId>
+			<version>3.0.19.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>3.0.19.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-multipart-provider</artifactId>
+			<version>3.0.19.Final</version>
+		</dependency>
+		<dependency>
 		    <groupId>com.fasterxml.jackson.core</groupId>
 		    <artifactId>jackson-databind</artifactId>
 		    <version>2.5.3</version>
 		</dependency>
-
+		<!--  documentation swagger 2 springfox-->
 		<dependency>
-			<groupId>cl.bilix.xps.services.negocio</groupId>
-			<artifactId>services-negocio</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>cl.bilix.xps.services.utils</groupId>
-			<artifactId>services-utils</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
-		<dependency>
-			<groupId>cl.bilix.xps.common</groupId>
-			<artifactId>common-xps</artifactId>
-			<version>1.0.0</version>
-			<scope>provided</scope>
-		</dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger-ui</artifactId>
+            <version>2.3.0</version>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <version>2.3.0</version>
+        </dependency>
 	</dependencies>
 
 </project>

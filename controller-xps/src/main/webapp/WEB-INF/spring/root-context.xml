@@ -23,6 +23,8 @@
   	 		<beans:property name="jndiName" value="java:/datasources/XPS2DS" />
 		</beans:bean>
 	
+	 <mvc:annotation-driven/>
+	 
 	<tx:annotation-driven transaction-manager="transactionManager"/>
 	
 	<beans:bean id="transactionManager"

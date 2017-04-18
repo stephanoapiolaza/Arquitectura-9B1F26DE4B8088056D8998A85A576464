@@ -9,7 +9,12 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-
+	
+	<!-- Component Scan Doc -->
+	<resources mapping="swagger-ui.html" location="classpath:/META-INF/resources/"/>
+	<resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/"/>
+	<context:component-scan base-package="cl.bilix.xps.controller.swagger"/>
+	
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
     
 	<!-- Enables the Spring MVC @Controller programming model -->

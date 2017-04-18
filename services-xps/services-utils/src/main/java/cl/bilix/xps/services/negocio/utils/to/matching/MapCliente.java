@@ -1,4 +1,4 @@
-package cl.bilix.xps.services.negocio.to.matching;
+package cl.bilix.xps.services.negocio.utils.to.matching;
 
 import org.modelmapper.PropertyMap;
 
