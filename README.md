@@ -18,5 +18,8 @@ Se pueden descargar desde <a href="https://search.maven.org/">maven repository c
 ### Middleware
 Se recomienda el uso de <a href="https://developers.redhat.com/products/eap/download/?sc_cid=7016000000126tMAAQ&gclid=Cj0KEQjwwoLHBRDD0beVheu3lt0BEiQAvU4CKvHsWyIYj8G3bwmWCrmZhJowFbNLYRxsUf_GquvbZ28aAtGM8P8HAQ">Enterprise Application Platform 7.0.0</a> en producción y <a href="http://wildfly.org/downloads/">JBoss Wildfly 10.X</a> en desarrollo.
 
+### Pasos de Ejecucion
+Ir al siguiente enlace <a href="https://github.com/stephanoapiolaza/Arquitectura-9B1F26DE4B8088056D8998A85A576464/blob/master/Steprun.md">steprun</a>
+
 ### Licencia
 MIT is a simple permissive license with conditions only requiring preservation of copyright and license notices. Licensed works, modifications, and larger works may be distributed under different terms and without source code.
