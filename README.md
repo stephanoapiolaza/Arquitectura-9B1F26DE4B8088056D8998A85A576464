@@ -9,7 +9,7 @@ Arquitectura basada en MVC para aplicación Java EE7.
 * <a href="https://www.sonarqube.org/">Sonarqube 6.2</a> : Ayuda a mejorar la calidad de codigo.
 * <a href="http://site.mockito.org/">Mock 2.7.21</a> : TDD y Behavior Test.
 * <a href="http://junit.org/junit4/">JUnit 4.X</a> : TDD.
-* <a href="https://jenkins.io/">Jenkins 2.32.3</a> : Integración Continua.
+* <a href="http://swagger.io/">Swagger 2.X</a> : Documentation API REST.
 * <a href="https://git-scm.com/">GIT 2.10.1</a> : CVS, Sistema Control de Versiones</code>.
 
 ### Librerias
