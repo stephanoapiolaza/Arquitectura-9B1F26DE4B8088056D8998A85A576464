@@ -1,6 +1,6 @@
-# Arquitectura-9B1F26DE4B8088056D8998A85A576464
+# Arquitectura-Restful
 ## Descripcion
-Arquitectura basada en MVC para aplicación Java EE7.
+Arquitectura basada en RestFul para aplicación Java EE7.
 ## Tecnologia utilizada:
 * <a href="http://www.mybatis.org/mybatis-3/es/">Mybatis 3.X</a> : framework ORM
 * <a href="https://projects.spring.io/spring-framework/">Spring 4 MVC</a> : Framework MVC, Patron AOP, etc
