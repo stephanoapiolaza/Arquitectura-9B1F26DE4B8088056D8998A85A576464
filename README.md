@@ -6,11 +6,9 @@ Arquitectura basada en RestFul para aplicación Java EE7.
 * <a href="https://projects.spring.io/spring-framework/">Spring 4 MVC</a> : Framework MVC, Patron AOP, etc
 * <a href="http://www.oracle.com/technetwork/java/javaee/downloads/index.html">Java EE7</a> : Tecnología Java Web.
 * <a href="https://maven.apache.org/">Maven 3.3.9</a> : Build Managment System.
-* <a href="https://www.sonarqube.org/">Sonarqube 6.2</a> : Ayuda a mejorar la calidad de codigo.
 * <a href="http://site.mockito.org/">Mock 2.7.21</a> : TDD y Behavior Test.
 * <a href="http://junit.org/junit4/">JUnit 4.X</a> : TDD.
 * <a href="http://swagger.io/">Swagger 2.X</a> : Documentation API REST.
-* <a href="https://git-scm.com/">GIT 2.10.1</a> : CVS, Sistema Control de Versiones</code>.
 
 ### Librerias
 Se pueden descargar desde <a href="https://search.maven.org/">maven repository central</a> 
