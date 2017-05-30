@@ -12,7 +12,7 @@
 * Ejecutar servidor
 
 ## Ejecucion de Servicios REST
-Hay distintas tareas para este trabajo como postman, rest api client, pero este proyecto se autodocumenta con swagger, para ejecutarlo y probar los servicios ingresar a 
+Este proyecto se autodocumenta con swagger, para ejecutarlo y probar los servicios ingresar a 
 <code>http://localhost:8080/controller-xps/swagger-ui.html#/</code>
 
 ## NOTA
